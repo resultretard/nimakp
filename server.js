@@ -29,7 +29,8 @@ const MODEL_MAPPING = {
   'claude-3-opus': 'openai/gpt-oss-120b',
   'claude-3-sonnet': 'openai/gpt-oss-20b',
   'gemini-pro': 'qwen/qwen3-next-80b-a3b-thinking',
-  'glm-5.2': 'z-ai/glm-5.2'
+  'glm-5.2': 'z-ai/glm-5.2',
+ 'meta/llama-3.1-70b-instruct': 'meta/llama-3.1-70b-instruct'
 };
 
 // Health check endpoint
