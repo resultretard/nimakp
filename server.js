@@ -62,9 +62,10 @@ app.get('/v1/models', (req, res) => {
 app.post('/v1/chat/completions', async (req, res) => {
   try {
     const { model, messages, temperature, max_tokens, stream } = req.body;
-    
+
+    let nimModel = model;
     // Smart model selection with fallback
-    let nimModel = MODEL_MAPPING[model];
+    /*let nimModel = MODEL_MAPPING[model];
     if (!nimModel) {
       try {
         await axios.post(`${NIM_API_BASE}/chat/completions`, {
@@ -91,7 +92,7 @@ app.post('/v1/chat/completions', async (req, res) => {
           nimModel = 'meta/llama-3.1-8b-instruct';
         }
       }
-    }
+    }*/
     
     // Transform OpenAI request to NIM format
     const nimRequest = {
