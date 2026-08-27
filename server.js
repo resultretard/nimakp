@@ -64,6 +64,7 @@ app.post('/v1/chat/completions', async (req, res) => {
     const { model, messages, temperature, max_tokens, stream } = req.body;
 
     let nimModel = model;
+    
     // Smart model selection with fallback
     /*let nimModel = MODEL_MAPPING[model];
     if (!nimModel) {
