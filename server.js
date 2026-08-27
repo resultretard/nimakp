@@ -8,22 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
-
-app.use((req, res, next) => {
-  console.log("---- INCOMING REQUEST ----");
-  console.log("Method:", req.method);
-  console.log("URL:", req.url);
-  console.log("Content-Type:", req.headers["content-type"]);
-  console.log("Content-Length:", req.headers["content-length"]);
-  next();
-});
-
-app.use(express.json({
-  verify: (req, res, buf) => {
-    console.log("RAW FIRST 100 CHARS:");
-    console.log(buf.toString().slice(0,100));
-  }
-}));
+app.use(express.json({ limit: '20mb' }));
  
 // NVIDIA NIM API configuration
 const NIM_API_BASE = process.env.NIM_API_BASE || 'https://integrate.api.nvidia.com/v1';
